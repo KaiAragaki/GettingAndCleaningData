@@ -12,7 +12,6 @@ setwd("train") # Go to train files
 xTrain <- read.delim("X_train.txt", header = F, sep = "") # Read in measurement data
 colnames(xTrain)<-labels[,2] # Name columns as dictated by the features.txt file
 yTrain <- read.delim("y_train.txt", header = F, sep = "") # Read in Activity Numbers
-yTrain2 <- factor(yTrain)
 subjectTrain <- read.delim("subject_train.txt", header = F, sep = "") # Read in Subject Numbers
 
 totTrain <- cbind(yTrain, subjectTrain, xTrain, isTrain = c(T)) # Combines and adds "isTrain" attribute (to be able to differentiate after combining)
