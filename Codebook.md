@@ -1,5 +1,5 @@
 # Codebook
-All data used in this analysis is from the UCI HAR Dataset. Further documentation can be found [here] (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#)
+All data used in this analysis is from the UCI HAR Dataset. Further documentation can be found [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#)
 run_analysis.R produces several variables. They are described below in order of appearance
 
 ## userWD
