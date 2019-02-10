@@ -4,6 +4,7 @@ Scripts and Documents for the Getting and Cleaning Data Project
 ## Scripts
 This repository contains only one script, run_analysis.R.
 * This script requires tidyverse
+
 The script first saves the users current working directory to be able to return to it at the end of the script.
 
 This script then downloads the dataset (from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)) and unzips it.
