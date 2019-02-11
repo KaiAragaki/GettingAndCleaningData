@@ -17,6 +17,6 @@ This merged dataset is converted into a tibble to allow for further downstream p
 
 Variable names containing the character string "mean" or "std" are selected from the dataset, including ID columns like "isTrain", "Activity" and "Subject".
 
-This filtered dataset then bifurcates and is grouped by either Activity or Subject, then the mean of each column containing "mean" or "std" is taken as a summary. The results are merged back together in the variable 'meanData', which is then written to a .txt file called "analysisOutput.txt".
+This filtered dataset is grouped by both activity and subject, then the mean of each variable was taken and stored in a dataframe. The dataframe is then exported as a .txt file "analysisOutput.txt"
 
 Finally, the user's original working directory is restored.
