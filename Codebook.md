@@ -1,52 +1,197 @@
 # Codebook
 All data used in this analysis is from the UCI HAR Dataset. Further documentation can be found [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#)
 
-`run_analysis.R` produces several variables. They are described below in order of appearance
+`run_analysis.R` exports a .txt file `analysisOutput.txt`. The variables are as follows:
 
-## userWD
-Stores the user's current working directory so as to be able to restore it at the end of the session
+Activity
 
-## labels
-List of variable names associated with measurement columns (See `xTrain`). The first column includes column number, the second includes column name
+  * Activity is a factor variable which encodes the action which is performed by the phone wearer. It has the following levels:
 
-## activityLabels
-Labels provided by the UCI HAR Dataset. They will be used downstream to convert numeric activity labels to descriptive activity labels, with the following Key:Value pairs:
-1. WALKING
-2. WALKING_UPSTAIRS
-3. WALKING_DOWNSTAIRS
-4. SITTING
-5. STANDING
-6. LAYING
+  1. WALKING
+  2. WALKING_UPSTAIRS
+  3. WALKING_DOWNSTAIRS
+  4. SITTING
+  5. STANDING
+  6. LAYING
 
-## xTrain
-Training measurements made by the UCI HAR Lab. 
+Subject
+ 
+* Subject is a numeric variable that defines which test subject was used
 
-## yTrain
-Activity numbers associated with the training dataset measurement. These numbers correspond with the labels in `activityLabels`
+tBodyAcc-mean()-X
 
-## subjectTrain
-Subject numbers associated with the training dataset measurements. These do not have descriptive labels associated with them.
+tBodyAcc-mean()-Y
 
-## totTrain
-Horizontal combination of `yTrain`, `subjectTrain`, `xTrain`, and a new variable `isTrain` - which specifies whether it came from the training dataset or the testing dataset
+tBodyAcc-mean()-Z
 
-## xTest, yTest, subjectTest, totTest
-Similar to their training cognates, except from the testing dataset produced by UCI HAR
+tBodyAcc-std()-X
 
-## totData
-Vertical combination of `totTrain` and `totTest`, with the numerical activity labels replace with descriptive activity labels
+tBodyAcc-std()-Y
 
-## tibbleTot
-`totData` coerced into a `tibble`, using a `.name_repair` method to handle duplicate names (which cannot be handled by `dplyr`)
+tBodyAcc-std()-Z
 
-## selectData
-Subset of `tibbleTot`. Particular rows of data whose column names contain either `mean`, `std`, `isTrain`, `Activity`, or `Subject`.
+tGravityAcc-mean()-X
 
-## groupedSelectSubject
-`selectData`, grouped by subject number, then summarized by the mean of columns containing either `mean` or `std`
+tGravityAcc-mean()-Y
 
-## groupedSelectActivity
-`selectData`, grouped by activity, then summarized by the mean of columns containing either `mean` or `std`
+tGravityAcc-mean()-Z
 
-## meanData
-Vertical combination of `groupedSelectSubject` and `groupedSelectActivity`
+tGravityAcc-std()-X
+
+tGravityAcc-std()-Y
+
+tGravityAcc-std()-Z
+
+tBodyAccJerk-mean()-X
+
+tBodyAccJerk-mean()-Y
+
+tBodyAccJerk-mean()-Z
+
+tBodyAccJerk-std()-X
+
+tBodyAccJerk-std()-Y
+
+tBodyAccJerk-std()-Z
+
+tBodyGyro-mean()-X
+
+tBodyGyro-mean()-Y
+
+tBodyGyro-mean()-Z
+
+tBodyGyro-std()-X
+
+tBodyGyro-std()-Y
+
+tBodyGyro-std()-Z
+
+tBodyGyroJerk-mean()-X
+
+tBodyGyroJerk-mean()-Y
+
+tBodyGyroJerk-mean()-Z
+
+tBodyGyroJerk-std()-X
+
+tBodyGyroJerk-std()-Y
+
+tBodyGyroJerk-std()-Z
+
+tBodyAccMag-mean()
+
+tBodyAccMag-std()
+
+tGravityAccMag-mean()
+
+tGravityAccMag-std()
+
+tBodyAccJerkMag-mean()
+
+tBodyAccJerkMag-std()
+
+tBodyGyroMag-mean()
+
+tBodyGyroMag-std()
+
+tBodyGyroJerkMag-mean()
+
+tBodyGyroJerkMag-std()
+
+fBodyAcc-mean()-X
+
+fBodyAcc-mean()-Y
+
+fBodyAcc-mean()-Z
+
+fBodyAcc-std()-X
+
+fBodyAcc-std()-Y
+
+fBodyAcc-std()-Z
+
+fBodyAcc-meanFreq()-X
+
+fBodyAcc-meanFreq()-Y
+
+fBodyAcc-meanFreq()-Z
+
+fBodyAccJerk-mean()-X
+
+fBodyAccJerk-mean()-Y
+
+fBodyAccJerk-mean()-Z
+
+fBodyAccJerk-std()-X
+
+fBodyAccJerk-std()-Y
+
+fBodyAccJerk-std()-Z
+
+fBodyAccJerk-meanFreq()-X
+
+fBodyAccJerk-meanFreq()-Y
+
+fBodyAccJerk-meanFreq()-Z
+
+fBodyGyro-mean()-X
+
+fBodyGyro-mean()-Y
+
+fBodyGyro-mean()-Z
+
+fBodyGyro-std()-X
+
+fBodyGyro-std()-Y
+
+fBodyGyro-std()-Z
+
+fBodyGyro-meanFreq()-X
+
+fBodyGyro-meanFreq()-Y
+
+fBodyGyro-meanFreq()-Z
+
+fBodyAccMag-mean()
+
+fBodyAccMag-std()
+
+fBodyAccMag-meanFreq()
+
+fBodyBodyAccJerkMag-mean()
+
+fBodyBodyAccJerkMag-std()
+
+fBodyBodyAccJerkMag-meanFreq()
+
+fBodyBodyGyroMag-mean()
+
+fBodyBodyGyroMag-std()
+
+fBodyBodyGyroMag-meanFreq()
+
+fBodyBodyGyroJerkMag-mean()
+
+fBodyBodyGyroJerkMag-std()
+
+fBodyBodyGyroJerkMag-meanFreq()
+
+angle(tBodyAccMean,gravity)
+
+angle(tBodyAccJerkMean),gravityMean)
+
+angle(tBodyGyroMean,gravityMean)
+
+angle(tBodyGyroJerkMean,gravityMean)
+
+angle(X,gravityMean)
+
+angle(Y,gravityMean)
+
+angle(Z,gravityMean)
+
+
+All variables names, aside for Activity and Subject, are unchanged from the original UHI Dataset
+
+
+The remainder of the variables are described in the 'features_info.txt' file that is downloaded upon running this script.
