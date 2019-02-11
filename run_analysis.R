@@ -32,20 +32,11 @@ totData[,1] <- factor(totData[,1], levels = c(1:6), labels = activityLabels)
 tibbleTot <- as_tibble(totData, .name_repair = "unique") # Convert to tibble, which allows for downstream proccesing with dplyr
 selectData <- select(tibbleTot, matches("mean|std|isTrain|Activity|Subject")) # Extracts only variables that match our wanted criteria and our informational variables
 
-# Group by Subject Number, then take the mean of each column (minus our 'informational' columns)
-groupedSelectSubject <- group_by(selectData, Subject) %>%
+
+# Group by Subject number and Activity Number
+groupedData <- group_by(selectData, Activity, Subject) %>%
   summarize_at(vars(matches("mean|std")), mean)
-# Name rownames and column in preparation for rbinding results
-groupedSelectSubject[,1] <- paste("Subject", 1:nrow(groupedSelectSubject))
-colnames(groupedSelectSubject)[1] <- "Calculation"
 
-# Same as above, but with Activity Number now
-groupedSelectActivity <- group_by(selectData, Activity) %>%
-  summarize_at(vars(matches("mean|std")), mean)
-colnames(groupedSelectActivity)[1] <- "Calculation"
-
-meanData <- rbind(groupedSelectSubject, groupedSelectActivity) # Combine both Activity and Subject Number grouping results
-
-write.table(meanData, file = "analysisOutput.txt", row.names = F)
+write.table(groupedData, file = "analysisOutput.txt", row.names = F)
 
 setwd(userWD) # Put the user back where you found them
